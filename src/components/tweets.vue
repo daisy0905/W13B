@@ -5,7 +5,7 @@
         <div id="tweets-container" :class="{tweetsGrid: isGrid}">
             <div class="tweets" v-for="tweet in tweets" v-bind:key="tweet">
                 <h3 class="tweet-username">{{ tweet.username }}</h3>
-                <h3 class="tweet-date">{{ tweet.date }}</h3>
+                <h4 class="tweet-date">{{ tweet.date }}</h4>
                 <p class="tweet-content">{{ tweet.content }}</p>
             </div>
         </div>
@@ -20,6 +20,7 @@ export default {
             if(this.isGrid == true) {
                 this.isGrid = false;
                 document.getElementById("change").innerHTML = "Change to grid View";
+                
             } else if(this.isGrid == false) {
                 this.isGrid = true;
                 document.getElementById("change").innerHTML = "Change to list View";
@@ -85,5 +86,33 @@ export default {
         justify-items: center;
         align-items: center;
         grid-template-columns: repeat(3, 1fr);
+        column-gap: 1vw;
+        row-gap: 1vh;
     }
+
+    #change {
+        width: 10vw;
+        padding: 0.5em;
+        background-color: maroon;
+        color: white;
+        font-size: 1rem;
+    }
+
+    #tweets-container {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        row-gap: 2vh;
+    }
+
+    .tweets {
+        width: 30vw;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        background-color: lightgrey;
+        border-radius: 2em;
+        box-shadow: 1px 1px 2px grey;
+    }
+    
 </style>
